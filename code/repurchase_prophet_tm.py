@@ -36,6 +36,7 @@ cats_top_df = cats_top[cats_top['count']>1000]
 # Filtered to keep only the high-frequency items:
 pro_lst = list(set(cats_top_df['Description']))
 tran_df_sel = tran_df[tran_df['Description'].isin(pro_lst)]
+tran_df_sel['trans_date'] = pd.to_datetime(tran_df_sel['transaction_date'], format = '%Y-%m-%d')
 cols = ['Customer ID', 'Description', 'trans_date', 'Quantity']
 
 ## data to be used
